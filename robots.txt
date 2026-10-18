@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://senih25.github.io/harbormap-ny/sitemap.xml
+# On GitHub Pages project sites this file is NOT at github.io origin root, so is informational only.

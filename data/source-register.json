@@ -1,0 +1,149 @@
+{
+  "project": "HarborMap NY",
+  "prototype": true,
+  "verifiedAt": "2026-10-19",
+  "datasetSources": [
+    {
+      "id": "queens-library",
+      "name": "Queens Library Branches",
+      "agency": "Queens Public Library (QBPL)",
+      "datasetId": "kh3d-xhq7",
+      "url": "https://data.cityofnewyork.us/Education/Queens-Library-Branches/kh3d-xhq7",
+      "endpoint": "https://data.cityofnewyork.us/resource/kh3d-xhq7.json",
+      "terms": "https://data.cityofnewyork.us/stories/s/Terms-of-Use/k9k7-3cje",
+      "licenseAndAttribution": "NYC Open Data terms; attribute Queens Public Library; submitting agency conditions take precedence.",
+      "reuse": "Public informational records; re-check source-specific conditions before expanded reuse.",
+      "coverage": "Queens borough only",
+      "geography": "NYC Queens",
+      "updated": "2026-07-08",
+      "refresh": "As needed",
+      "verified": "2026-10-19",
+      "loadedRecords": 66,
+      "sourceRecordsRead": 66,
+      "fields": {
+        "name": "name",
+        "street": "address",
+        "city": "city",
+        "zip": "postcode",
+        "latitude": "latitude",
+        "longitude": "longitude",
+        "phone": "phone",
+        "website": "hours_can_be_viewed_via_branch_url_.url"
+      },
+      "concerns": "Coordinate precision only two decimal places; pins approximate, not navigation-grade."
+    },
+    {
+      "id": "nyc-internet",
+      "name": "Citywide Public Computer Centers",
+      "agency": "NYC Office of Technology and Innovation (OTI)",
+      "datasetId": "sejx-2gn3",
+      "url": "https://data.cityofnewyork.us/d/sejx-2gn3",
+      "endpoint": "https://data.cityofnewyork.us/resource/sejx-2gn3.json",
+      "terms": "https://data.cityofnewyork.us/stories/s/Terms-of-Use/k9k7-3cje",
+      "licenseAndAttribution": "NYC Open Data terms; attribute NYC OTI; agency-specific notices override general terms.",
+      "reuse": "Public facility records. No private personal data ingested.",
+      "coverage": "Five NYC boroughs",
+      "geography": "NYC",
+      "updated": "2026-03-26",
+      "refresh": "Annual",
+      "verified": "2026-10-19",
+      "loadedRecords": 468,
+      "sourceRecordsRead": 471,
+      "filter": "calendar_year = 2026 AND status = 'Currently open'; 3 entries excluded by coordinate/address bounds; administrative status is NOT live business hours.",
+      "fields": {
+        "id": "oid",
+        "name": "location_name",
+        "address": "full_location_address",
+        "borough": "borough_name",
+        "zip": "zipcode",
+        "latitude": "latitude",
+        "longitude": "longitude",
+        "phone": "full_location_phone_number",
+        "language": "languages_offered",
+        "accessibility": "wheelchair_accessible",
+        "requirements": "access_notes",
+        "url": "url.url"
+      },
+      "concerns": "Some sites have age or membership eligibility restrictions; no promise of free walk-in access."
+    },
+    {
+      "id": "nys-health",
+      "name": "Health Facility General Information",
+      "agency": "New York State Department of Health",
+      "datasetId": "vn5v-hh5r",
+      "url": "https://health.data.ny.gov/d/vn5v-hh5r",
+      "endpoint": "https://health.data.ny.gov/resource/vn5v-hh5r.json",
+      "terms": "https://data.ny.gov/dataset/OPEN-NY-Terms-Of-Use/77gx-ii52",
+      "licenseAndAttribution": "OPEN-NY lawful reuse under state terms; attribute NYS Department of Health; additional content-specific conditions take precedence.",
+      "reuse": "Only 'HOSP' records in NYC counties; no claim all health facilities are hospitals.",
+      "coverage": "NYS dataset filtered to Bronx, Kings, New York, Queens, Richmond",
+      "geography": "NYC subset",
+      "updated": "2026-09-01",
+      "refresh": "Weekly posting (metadata)",
+      "verified": "2026-10-19",
+      "loadedRecords": 67,
+      "sourceRecordsRead": 68,
+      "filter": "fac_desc_short = HOSP; NYC counties; one record excluded for missing/out-of-bounds coordinates",
+      "fields": {
+        "id": "fac_id",
+        "name": "facility_name",
+        "address": "address1,address2,city,fac_zip",
+        "borough": "county mapping",
+        "latitude": "latitude",
+        "longitude": "longitude",
+        "phone": "fac_phone"
+      },
+      "concerns": "The raw source contains repeated facility IDs across records; local display IDs use row indexes. Not a live services or operating-hours feed."
+    }
+  ],
+  "externalReferrals": [
+    {
+      "name": "MOIA immigration legal support",
+      "agency": "NYC Mayor's Office of Immigrant Affairs",
+      "url": "https://www.nyc.gov/site/immigrants/legal-resources/moia-immigration-legal-support-centers.page",
+      "mode": "outbound_referral_only",
+      "reason": "No bulk republication; eligibility and appointment availability require provider confirmation."
+    },
+    {
+      "name": "211 New York",
+      "agency": "211 New York",
+      "url": "https://search.211newyork.org/",
+      "mode": "outbound_referral_only",
+      "reason": "Directory records are not automatically open-licensed."
+    },
+    {
+      "name": "MTA",
+      "agency": "Metropolitan Transportation Authority",
+      "url": "https://www.mta.info/developers",
+      "mode": "outbound_referral_only",
+      "reason": "No unapproved MTA branding; no realtime without licensed/authenticated feeds."
+    },
+    {
+      "name": "NYC 311",
+      "agency": "New York City",
+      "url": "https://portal.311.nyc.gov/article/?kanumber=KA-02812",
+      "mode": "outbound_referral_only",
+      "reason": "Current municipal assistance referral."
+    },
+    {
+      "name": "NYC Health + Hospitals",
+      "agency": "NYC Health + Hospitals",
+      "url": "https://www.nychealthandhospitals.org/locations/",
+      "mode": "outbound_referral_only",
+      "reason": "Public referral; no scrape or inferred services."
+    },
+    {
+      "name": "NYSED professional verification",
+      "agency": "NYS Education Department",
+      "url": "https://www.op.nysed.gov/verification-search",
+      "mode": "outbound_referral_only",
+      "reason": "Professional license verification, not a pharmacy directory."
+    }
+  ],
+  "limitations": [
+    "Not an official city, state, MTA, or legal service.",
+    "Facility listing does not confirm hours, eligibility, or service availability.",
+    "NYS health dataset description and current raw facility classifications may differ.",
+    "Geolocation is used only in volatile browser memory after explicit user gesture."
+  ]
+}

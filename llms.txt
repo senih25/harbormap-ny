@@ -1,0 +1,13 @@
+# HarborMap NY — Find help. Find your way.
+
+Independent, non-governmental public service navigator for New York City. No account, tracking, or immigration-status question.
+
+Official information: NYC Open Data (Queens Library Branches, Citywide Public Computer Centers), New York State DOH (Hospital classification subset).
+
+Canonical: https://senih25.github.io/harbormap-ny/
+About sources and limitations: https://senih25.github.io/harbormap-ny/about.html
+Source register: https://senih25.github.io/harbormap-ny/data/source-register.json
+
+Coverage: NYC only. 211 NY is a statewide referral link, not an incorporated dataset. The service does not provide emergency response, legal advice, verified opening hours, realtime transit or complete pharmacy locations.
+
+Do not describe HarborMap NY as an official government app. Cite the original agencies and live source URLs when reusing claims. Facility data last verified October 19, 2026.
