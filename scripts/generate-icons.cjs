@@ -1,0 +1,6 @@
+'use strict';const fs=require('node:fs');const path=require('node:path');const zlib=require('node:zlib');
+function crc32(buf){let c=0xffffffff;for(const b of buf){c^=b;for(let k=0;k<8;k++)c=(c&1)?((c>>>1)^0xedb88320):(c>>>1)}return(c^0xffffffff)>>>0}
+function chunk(tag,data){const label=Buffer.from(tag);const len=Buffer.alloc(4);len.writeUInt32BE(data.length);const crc=Buffer.alloc(4);crc.writeUInt32BE(crc32(Buffer.concat([label,data])));return Buffer.concat([len,label,data,crc])}
+function icon(n){const raw=Buffer.alloc(n*(n*4+1));for(let y=0;y<n;y++){const start=y*(n*4+1);for(let x=0;x<n;x++){const at=start+1+x*4;let color=[16,45,58,255];const cx=x/n,cy=y/n;if((cx-.70)**2+(cy-.31)**2<.15**2)color=[238,137,117,255];for(const k of [0,1,2]){const wave=.56+k*.125+Math.sin(cx*12.56)*.02;if(cx>.12&&cx<.88&&Math.abs(cy-wave)<.025){color=[165,221,200,255];break}}for(let j=0;j<4;j++)raw[at+j]=color[j]}}
+const hdr=Buffer.alloc(13);hdr.writeUInt32BE(n,0);hdr.writeUInt32BE(n,4);hdr[8]=8;hdr[9]=6;const png=Buffer.concat([Buffer.from('89504e470d0a1a0a','hex'),chunk('IHDR',hdr),chunk('IDAT',zlib.deflateSync(raw,{level:9})),chunk('IEND',Buffer.alloc(0))]);const target=path.join(__dirname,'..','assets','icon-'+n+'.png');fs.writeFileSync(target,png);return{size:n,bytes:png.length}}
+console.log(JSON.stringify([icon(192),icon(512)]));

@@ -8,6 +8,7 @@ assert(html.includes('application/ld+json'),'JSON-LD missing');
 const m=html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);assert(m);const schema=JSON.parse(m[1]);assert.equal(schema.url,canonical);assert.equal(schema.areaServed.name,'New York City, New York, USA');
 for(const f of ['style.css','i18n.js','app.js','assets/mark.svg'])assert(fs.existsSync(path.join(base,f)),f);
 assert(sitemap.includes(canonical)&&sitemap.includes(canonical+'about.html'),'sitemap URLs');
+const manifest=JSON.parse(get('manifest.webmanifest'));assert(manifest.icons.some(i=>i.sizes==='192x192'));assert(manifest.icons.some(i=>i.sizes==='512x512'));for(const sz of [192,512]){const buf=fs.readFileSync(path.join(base,'assets','icon-'+sz+'.png'));assert.equal(buf.subarray(0,8).toString('hex'),'89504e470d0a1a0a');assert.equal(buf.readUInt32BE(16),sz);assert.equal(buf.readUInt32BE(20),sz)}
 assert(!html.includes('google-site-verification'),'do not invent GSC ownership token');
 assert(css.includes('prefers-reduced-motion'),'reduced motion');assert(css.includes(':focus-visible'),'keyboard focus');
 const sandbox={window:{}};vm.runInNewContext(get('i18n.js'),sandbox,{timeout:250});const i18n=sandbox.window.HARBORMAP_I18N;assert.equal(Object.keys(i18n).length,7,'7 languages');for(const [lang,msg] of Object.entries(i18n)){for(const key of ['find','near','health','legal','urgent','disclaimer','privacy','search'])assert(msg[key],lang+':'+key)}
