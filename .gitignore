@@ -1,0 +1,21 @@
+# Machine-specific state and accidental credential files
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.pem
+*.p12
+*.pfx
+*.key
+*.secret
+*.token
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# Local testing / screenshot evidence (can contain private account or screen content)
+evidence/
+# Local diagnostics
+coverage/
+.nyc_output/

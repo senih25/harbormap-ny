@@ -1,0 +1,37 @@
+name: Suggest a public-data correction
+description: Correct a publicly listed facility with a verifiable original agency source
+title: "[Data] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use only PUBLIC facility data. Never post private shelter locations, home addresses, immigration status, people's case files or identifying records. HarborMap cannot verify walk-in eligibility or live opening hours.
+  - type: input
+    id: agency
+    attributes:
+      label: Official source agency and dataset (if known)
+      placeholder: Example - NYC OTI / sejx-2gn3
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Public official source URL
+      placeholder: https://data.cityofnewyork.us/...
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Observed public-data discrepancy
+      description: Explain the discrepancy and date of your observation without any personal information.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: The facility and all details supplied are already publicly published by the cited agency.
+          required: true

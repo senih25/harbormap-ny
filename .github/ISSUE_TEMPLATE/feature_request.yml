@@ -1,0 +1,30 @@
+name: Suggest a public-benefit improvement
+description: A safe, inclusive feature idea for verified public-service discovery
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep ideas within the independent NYC launch scope. Do not include private details about yourself or anyone seeking help.
+  - type: textarea
+    id: need
+    attributes:
+      label: Which access or usability problem does this solve?
+      placeholder: Who would benefit, and why?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested approach and official public data source (if relevant)
+      placeholder: Explain the practical solution and any known data or licensing limitations.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Requirements considered
+      options:
+        - label: No tracking, profiling, sensitive facility locations or unsupported eligibility claims.
+          required: true

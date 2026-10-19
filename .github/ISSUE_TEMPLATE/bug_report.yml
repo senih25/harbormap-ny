@@ -1,0 +1,42 @@
+name: Report an application bug
+description: A reproducible site, map, language or accessibility problem (no personal data)
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not post identity documents, private addresses, immigration status, precise visitor location, credentials or personal health details. For vulnerabilities, use private Security reporting instead.
+  - type: dropdown
+    id: category
+    attributes:
+      label: Affected area
+      options:
+        - Search and filters
+        - Map and list
+        - Mobile layout
+        - Accessibility or keyboard
+        - Language or translation
+        - Referrals and source links
+        - Other public UI issue
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce (without personal details)
+      placeholder: Tell us the steps and expected/actual behavior.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Device/browser (optional)
+      placeholder: Example - Android Chrome, 360px
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: My report contains no personal, confidential or unpublished facility information.
+          required: true

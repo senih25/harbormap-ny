@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Sensitive security vulnerability (private)
+    url: https://github.com/senih25/harbormap-ny/security/advisories/new
+    about: Never publish vulnerabilities, credentials or private personal data in an issue.
+  - name: Need actual public services?
+    url: https://senih25.github.io/harbormap-ny/
+    about: This repository cannot provide direct assistance; use the published provider links.
